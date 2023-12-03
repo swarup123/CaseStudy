@@ -65,7 +65,7 @@ export default function CreateUser() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main">
         <CssBaseline />
         <ToastContainer />
         <FormBoxWrapper>
