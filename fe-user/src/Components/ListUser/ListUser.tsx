@@ -12,7 +12,7 @@ import Paper from "@mui/material/Paper";
 
 import { RowDataType } from "./listUser.type";
 import { Typography } from "@mui/material";
-import { getAPIURL } from "../../util";
+import { environment } from "../../environments/environment";
 import { LIST_API } from "../../api-endpoint.config";
 
 export default function ListUser() {
@@ -20,9 +20,8 @@ export default function ListUser() {
 
   async function getUserList() {
     try {
-      const URL = getAPIURL();
 
-      let data = await fetch(`${URL}${LIST_API}`);
+      let data = await fetch(`${environment.API_URL}${LIST_API}`);
 
       if (data.ok) {
         let userData = await data.json();
