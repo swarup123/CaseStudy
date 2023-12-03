@@ -57,7 +57,6 @@ export default function ListUser() {
                     hover
                     tabIndex={-1}
                     key={row.firstName}
-                    sx={{ cursor: "pointer" }}
                   >
                     <TableCell>{row?.firstName}</TableCell>
                     <TableCell>{row?.lastName}</TableCell>
