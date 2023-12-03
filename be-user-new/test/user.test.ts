@@ -16,18 +16,18 @@ afterEach(async () => {
   await mongoose.connection.close();
 });
 
-describe("GET /api/v1/list-users", () => {
+describe("GET /list-users", () => {
   it("should return all users", async () => {
-    const res = await request(app).get("/api/v1/list-users");
+    const res = await request(app).get("/list-users");
     expect(res.statusCode).toBe(200);
     expect(res.body.userDetails.length).toBeGreaterThan(0);
   });
 });
 
 
-describe("POST /api/v1/create-user", () => {
+describe("POST /create-user", () => {
   it("should create a user", async () => {
-    const res = await request(app).post("/api/v1/create-user").send({
+    const res = await request(app).post("/create-user").send({
       firstName: "Product 2",
       lastName: 'Mis',
       email: "a@gmail.com",
@@ -37,10 +37,10 @@ describe("POST /api/v1/create-user", () => {
   });
 });
 
-describe("POST /api/v1/create-user", () => {
+describe("POST /create-user", () => {
   it("should give error", async () => {
     const res = await request(app)
-      .post("/api/v1/create-user")
+      .post("/create-user")
       .send({
         firstName: "",
         lastName: 'Mis',
@@ -85,7 +85,7 @@ describe('listUser', () => {
     } as unknown as Response;
   
     // Mock the UserModel.find function to throw an error
-    jest.mock('./path-to-user-model-file', () => ({
+    jest.mock('../model/userModel', () => ({
       find: jest.fn().mockImplementation(() => {
         throw new Error('Some error');
       }),
