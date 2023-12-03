@@ -14,7 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { FormBoxWrapper } from "./partials/FormBoxWrapper";
 import { validateEmail } from "../../util";
 import MuiButton from "../common/MuiButton";
-import { CREATE_API, LIST_API } from "../../api-endpoint.config";
+import { CREATE_API } from "../../api-endpoint.config";
 import { environment } from "../../environments/environment";
 
 const theme = createTheme();
@@ -56,7 +56,7 @@ export default function CreateUser() {
         notify(
           `User created Successfully- ${registerUser.data.userDetails.firstName}`
         );
-        navigate(`${LIST_API}`);
+        navigate("/list-user");
       } else if (registerUser && registerUser.data.statusCode === 204) {
         notify(`Duplicate - ${registerUser.data.success}`);
       }
