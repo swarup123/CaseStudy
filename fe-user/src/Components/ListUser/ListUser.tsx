@@ -13,6 +13,7 @@ import Paper from "@mui/material/Paper";
 import { RowDataType } from "./listUser.type";
 import { Typography } from "@mui/material";
 import { getAPIURL } from "../../util";
+import { LIST_API_ENDPOINT } from "../../constant.type";
 
 export default function ListUser() {
   const [rows, setRows] = useState([]);
@@ -21,7 +22,7 @@ export default function ListUser() {
     try {
       const URL = getAPIURL();
 
-      let data = await fetch(`${URL}list-users`);
+      let data = await fetch(`${URL}${LIST_API_ENDPOINT}`);
 
       if (data.ok) {
         let userData = await data.json();
