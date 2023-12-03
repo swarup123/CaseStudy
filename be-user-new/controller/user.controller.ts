@@ -9,7 +9,7 @@ export const createUser = async (req: Request, res: Response) => {
     if(firstName.length > 100 || lastName.length > 100) {
       return res.send({
         statusCode: 400,
-        success: "Maximum 100 character allowed in first name and last name ",
+        error: "Maximum 100 character allowed in first name and last name ",
       });
     }
     
