@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { MAX_LENGTH } from "../../constant.type";
+import { MAX_LENGTH, CREATE_API_ENDPOINT } from "../../constant.type";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -44,7 +44,7 @@ export default function CreateUser() {
         ...userData,
       };
       const URL = getAPIURL();
-      let registerUser = await axios.post(`${URL}create-user`, formData);
+      let registerUser = await axios.post(`${URL}${CREATE_API_ENDPOINT}`, formData);
 
       if (
         registerUser &&
