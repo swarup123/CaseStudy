@@ -12,9 +12,10 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { FormBoxWrapper } from "./partials/FormBoxWrapper";
-import { getAPIURL, validateEmail } from "../../util";
+import { validateEmail } from "../../util";
 import MuiButton from "../common/MuiButton";
 import { CREATE_API } from "../../api-endpoint.config";
+import { environment } from "../../environments/environment";
 
 const theme = createTheme();
 
@@ -44,8 +45,8 @@ export default function CreateUser() {
       let formData = {
         ...userData,
       };
-      const URL = getAPIURL();
-      let registerUser = await axios.post(`${URL}${CREATE_API}`, formData);
+      
+      let registerUser = await axios.post(`${environment.API_URL}${CREATE_API}`, formData);
 
       if (
         registerUser &&
